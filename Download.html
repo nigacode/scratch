@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tải tất cả file</title>
+</head>
+<body>
+  <h2>Tải tất cả file trong thư mục GitHub (trừ HTML và README.md)</h2>
+  <button onclick="downloadFiles()">Tải tất cả</button>
+
+  <script>
+    // Thông tin repo
+    const user = "nigacode";
+    const repo = "scratch";
+    const branch = "main";
+
+    // Danh sách file (trừ file HTML và README.md)
+    const files = [
+      "2Tower Defense.sb3",
+      "2Tower Defense_kq.png",
+      "2TowerDefense_code (1).png",
+      "2TowerDefense_code (2).png",
+      "2TowerDefense_code (3).png",
+      "2TowerDefense_code (4).png",
+      "2TowerDefense_code (5).png",
+      "Fighter Game.sb3",
+      "FighterGame_code (1).png",
+      "FighterGame_code (2).png",
+      "FighterGame_code (3).png",
+      "FighterGame_code (4).png",
+      "FighterGame_kq.png",
+      "Geometry Dash.sb3",
+      "GeometryDash_code (1).png",
+      "GeometryDash_code (2).png",
+      "GeometryDash_kq.png",
+      "Jumping Game.sb3",
+      "JumpingGame_code (1).png",
+      "JumpingGame_code (2).png",
+      "JumpingGame_code (3).png",
+      "JumpingGame_kq.png",
+      "Tower Defense Game.sb3",
+      "TowerDefenseGame_code (1).png",
+      "TowerDefenseGame_code (2).png",
+      "TowerDefenseGame_kq.png",
+      "Virtual Town.sb3",
+      "VirtualTown_code (1).png",
+      "VirtualTown_code (2).png",
+      "VirtualTown_code (3).png",
+      "VirtualTown_code (4).png",
+      "VirtualTown_kq.png",
+      "ballblast.sb3",
+      "ballblast_code (1).png",
+      "ballblast_code (2).png",
+      "ballblast_kq.png",
+      "fish shark game.sb3",
+      "fishsharkgame_code (1).png",
+      "fishsharkgame_code (2).png",
+      "fishsharkgame_kq.png"
+    ];
+
+    function downloadFiles() {
+      for (const file of files) {
+        const encodedFile = encodeURIComponent(file).replace(/%20/g, "+");
+        const url = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${encodedFile}`;
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = file;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+  </script>
+</body>
+</html>
