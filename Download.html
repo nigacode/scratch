@@ -1,65 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tải file Scratch</title>
+  <title>Download Files</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    .file-section {
+      margin-bottom: 30px;
+    }
+    .file-section h2 {
+      color: #444;
+    }
+    .download-link {
+      display: inline-block;
+      margin: 5px 10px 5px 0;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .download-link:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <h2>📦 Tải toàn bộ Scratch project (.zip)</h2>
-  <button onclick="downloadZip()">Tải Scratch.zip</button>
+  <h1>Download Scratch Projects</h1>
 
-  <h3>📁 Hoặc tải từng project .sb3 riêng:</h3>
-  <div id="sb3-buttons"></div>
+  <div class="file-section">
+    <h2>Game Projects</h2>
+    <a class="download-link" href="2Tower Defense.sb3" download>Ztower Defense.sb3</a>
+    <a class="download-link" href="Fighter Game.sb3" download>Fighter Game.sb3</a>
+    <a class="download-link" href="Geometry Dash.sb3" download>Geometry Dash.sb3</a>
+    <a class="download-link" href="Jumping Game.sb3" download>Jumping Game.sb3</a>
+    <a class="download-link" href="Tower Defense Game.sb3" download>Tower Defense Game.sb3</a>
+    <a class="download-link" href="Virtual Town.sb3" download>Virtual Town.sb3</a>
+    <a class="download-link" href="ballblast.sb3" download>Ball Blast.sb3</a>
+    <a class="download-link" href="fish shark game.sb3" download>Fish Shark Game.sb3</a>
+  </div>
 
-  <script>
-    const user = "nigacode";
-    const repo = "scratch";
-    const branch = "main";
-
-    const sb3Files = [
-      "2Tower Defense.sb3",
-      "Fighter Game.sb3",
-      "Geometry Dash.sb3",
-      "Jumping Game.sb3",
-      "Tower Defense Game.sb3",
-      "Virtual Town.sb3",
-      "ballblast.sb3",
-      "fish shark game.sb3"
-    ];
-
-    function downloadZip() {
-      const url = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/Scratch.zip`;
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "Scratch.zip";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    // Tạo nút cho mỗi file .sb3
-    const container = document.getElementById("sb3-buttons");
-    sb3Files.forEach(file => {
-      const btn = document.createElement("button");
-      btn.textContent = `Tải ${file}`;
-      btn.style.display = "block";
-      btn.style.margin = "6px 0";
-
-      btn.onclick = () => {
-        const encodedFile = encodeURIComponent(file).replace(/%20/g, "+");
-        const url = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${encodedFile}`;
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = file;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      };
-
-      container.appendChild(btn);
-    });
-  </script>
+  <div class="file-section">
+    <h2>Download All (Zip File)</h2>
+    <a class="download-link" href="Scratch.zip" download>Download Scratch.zip</a>
+  </div>
 </body>
 </html>
-
-
